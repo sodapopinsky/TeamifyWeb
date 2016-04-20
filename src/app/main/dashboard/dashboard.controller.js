@@ -11,13 +11,25 @@
     {
         var vm = this;
 
+        vm.colors = ['blue-bg', 'blue-grey-bg', 'orange-bg', 'pink-bg', 'purple-bg'];
+
         // Data
       //  vm.helloText = DashboardData.data.helloText;
 
         // Widget 7
-        vm.widget7 = {
-            title       : 'Activity',
-            activity    : DashboardData.data.activity
+        vm.widgets = {
+            activity: {
+                title: 'Activity',
+                data: DashboardData.data.activity
+            },
+            labor: {
+                title: 'Labor Summary',
+                data: DashboardData.data.labor
+            },
+            timecards: {
+                title: 'Timecards',
+                data: DashboardData.data.timecards
+            }
         };
 
 

@@ -1,0 +1,82 @@
+<md-dialog class="create-employee-dialog" aria-label="New Message">
+    <form name="createEmployeeForm" class="md-inline-form" novalidate>
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                <span class="title">Create Employee</span>
+                <md-button class="md-icon-button" ng-click="vm.closeDialog()"
+                           aria-label="Close dialog">
+                    <md-icon md-font-icon="icon-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content ms-scroll>
+            <div layout="row">
+                <md-input-container class="md-block" flex="50">
+                    <label>First Name</label>
+                    <input name="first_name" ng-model="vm.employee.name.first" required>
+
+                    <div ng-messages="createEmployeeForm.first_name.$error"
+                         ng-show="createEmployeeForm.first_name.$touched" role="alert">
+                        <div ng-message="required">
+                            <span>First Name is required</span>
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex="50">
+                    <label>Last Name</label>
+                    <input name="last_name" ng-model="vm.employee.name.last" required>
+                    <div ng-messages="createEmployeeForm.last_name.$error"
+                         ng-show="createEmployeeForm.last_name.$touched" role="alert">
+                        <div ng-message="required">
+                            <span>Last Name is required</span>
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div layout="row">
+                <md-input-container class="md-block" flex="50">
+                    <label>Email (Optional)</label>
+                    <input name="email" ng-model="vm.employee.email">
+                </md-input-container>
+                <md-input-container class="md-block" flex="50">
+                    <label>Phone Number (Optional)</label>
+                    <input name="phone" ng-model="vm.employee.phone">
+                </md-input-container>
+            </div>
+
+            <div layout="row">
+                <md-input-container class="md-block" flex="50">
+                    <label>PIN (Optional)</label>
+                    <input name="pin" ng-model="vm.employee.pin">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex="50">
+                    <label>Wage</label>
+                    <input name="wage" type="number" ng-model="vm.employee.wage" required>
+                    <div ng-messages="createEmployeeForm.wage.$error"
+                         ng-show="createEmployeeForm.wage.$touched" role="alert">
+                        <div ng-message="required">
+                            <span>Wage is required</span>
+                        </div>
+                        <div ng-message="number">
+                            <span>Please enter a valid wage</span>
+                        </div>
+
+                    </div>
+                </md-input-container>
+            </div>
+
+
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row" layout-align="end center">
+            <md-button ng-click="vm.saveEvent()" class="save-button md-accent md-raised"
+                       aria-label="SAVE"
+                       ng-disabled="createEmployeeForm.$invalid || createEmployeeForm.$pristine">
+                SAVE
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

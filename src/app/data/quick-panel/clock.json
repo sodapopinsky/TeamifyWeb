@@ -1,0 +1,9 @@
+{
+  "data": [
+    { "user": {"name": {"first": "Amanda", "last": "Singleton", "full": "Amanda Singleton"}},
+      "position": "SW 1",
+      "clock_in": "2016-04-12T15:34:00.000Z",
+      "clock_out": null
+    }
+  ]
+}

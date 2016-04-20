@@ -1,29 +1,27 @@
 <md-content>
-    <md-tabs md-no-pagination md-swipe-content md-stretch-tabs="always">
-        <md-tab>
-            <md-tab-label translate="QUICKPANEL.TODAY">TODAY</md-tab-label>
-            <md-tab-body>
-                <md-content class="today-tab scrollable" ms-scroll
-                            ng-include="'app/quick-panel/tabs/today/today-tab.html'">
-                </md-content>
-            </md-tab-body>
-        </md-tab>
-        <md-tab>
-            <md-tab-label translate="QUICKPANEL.CHAT">CHAT</md-tab-label>
-            <md-tab-body>
-                <md-content class="chat-tab scrollable" ms-scroll
-                            ng-include="'app/quick-panel/tabs/chat/chat-tab.html'"
-                            ng-controller="ChatTabController as vm">
-                </md-content>
-            </md-tab-body>
-        </md-tab>
-        <md-tab>
-            <md-tab-label translate="QUICKPANEL.ACTIVITY">ACTIVITY</md-tab-label>
-            <md-tab-body>
-                <md-content class="activity-tab scrollable" ms-scroll
-                            ng-include="'app/quick-panel/tabs/activity/activity-tab.html'">
-                </md-content>
-            </md-tab-body>
-        </md-tab>
-    </md-tabs>
+
+
+<div class="ph-16 pv-20 h3  border-bottom secondary-text"><b>{{vm.clock.length}}</b> Clocked in</div>
+
+        <div  ng-repeat="entry in vm.clock" >
+            <div layout="row" class="ph-16 pv-16">
+                <div class="avatar"  ms-random-class="vm.colors">
+                    {{entry.user.name.first[0]}}{{entry.user.name.last[0]}}
+                </div>
+
+                <div flex layout="column" layout-align="center">
+                    <div layout="row" layout-align="space-between center" class="font-size-14">
+                        <div>{{entry.user.name.full}}</div>
+                        <div >{{entry.clock_in | duration | number:1}} h</div>
+                    </div>
+                    <div layout="row" layout-align="space-between center" class="secondary-text">
+                        <div>{{entry.position}}</div>
+                        <div >{{entry.clock_in | date : 'shortTime'}} -</div>
+                    </div>
+                </div>
+            </div>
+            <md-divider  ng-if="!$last"></md-divider>
+        </div>
+
+
 </md-content>

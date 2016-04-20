@@ -20,8 +20,8 @@
             // Quick panel
             'app.quick-panel',
 
-            // Sample
-            'app.sample',
+            // Dashboard
+            'app.team',
 
             // Dashboard
             'app.dashboard'

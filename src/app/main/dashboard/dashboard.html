@@ -1,56 +1,188 @@
+<div layout="row" class="ph-16 pv-20 border-bottom white-500-bg" layout-align="start center">
+    <div layout="row" class=" h3 secondary-text" layout-align="start center" flex>
+        Monday, January 13th
+    </div>
+    <div layout="column" layout-align="center center" class="ph-8">
+        <div class="h3">$3,500</div>
+        <div class="secondary-text">Projected Sales</div>
+    </div>
+    <div class="divider-vertical"></div>
+
+    <md-menu>
+        <md-button aria-label="more" class="md-icon-button"
+                   ng-click="$mdOpenMenu($event)">
+            <md-icon md-font-icon="icon-dots-vertical"></md-icon>
+        </md-button>
+        <md-menu-content width="2">
+            <md-menu-item>
+                <md-button  aria-label="Today">
+                    Today
+                </md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button aria-label="Yesterday">
+                    Yesterday
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+
+</div>
+
+
+
+
 <div id="dashboard" class="page-layout simple" layout="row">
 
     <!-- CENTER -->
     <div class="center" flex ms-scroll>
 
-
-
         <!-- CONTENT -->
         <div class="content">
-
 
             <!-- WIDGET GROUP -->
             <div class="widget-group" layout="row" flex="100" layout-wrap>
 
-                <!-- WIDGET 7 -->
+                <!-- LABOR WIDGET -->
+                <ms-widget layout="column" flex="100" flex-gt-sm="50">
+
+                    <!-- Front -->
+                    <ms-widget-front class="white-bg" >
+                        <div class="ph-16 border-bottom" layout="row" layout-align="space-between center">
+                            <div class="h3 pv-16">{{vm.widgets.labor.title}}</div>
+                        </div>
+                        <div class="ph-16 pv-15 border-bottom" layout="row" layout-align="space-between center">
+                            <div>Labor Hours</div>
+                            <div class="h4 font-weight-500 secondary-text">{{vm.widgets.labor.data.hours}}</div>
+                        </div>
+                        <div class="ph-16 pv-15 border-bottom" layout="row" layout-align="space-between center">
+                            <div>Labor $</div>
+                            <div class="h4 font-weight-500 secondary-text">{{vm.widgets.labor.data.dollars | currency}}</div>
+                        </div>
+                        <div class="ph-16 pv-15" layout="row" layout-align="space-between center">
+                            <div>Labor Target</div>
+                            <div class="h4 font-weight-500 secondary-text">{{vm.widgets.labor.data.target | currency}}</div>
+                        </div>
+                    </ms-widget-front>
+                    <!-- / Front -->
+
+                </ms-widget>
+                <!-- / LABOR WIDGET -->
+
+                <!-- ACTIVITY WIDGET -->
                 <ms-widget layout="column" flex="100" flex-gt-sm="50">
 
                     <!-- Front -->
                     <ms-widget-front class="white-bg">
 
                         <div class="ph-16 border-bottom" layout="row" layout-align="space-between center">
-                            <div class="h3 pv-16">{{vm.widget7.title}}</div>
-
+                            <div class="h3 pv-16">{{vm.widgets.activity.title}}</div>
                         </div>
 
-                        <div class="p-16" layout="row" layout-align="space-between center"
-                             ng-repeat="event in vm.widget7.activity">
+                        <div  class="ph-16 pv-15 border-bottom" layout="row" layout-align="space-between center"
+                             ng-repeat="entry in vm.widgets.activity.data">
                             <div>
-                                <div class="h3">{{type}}</div>
-                                <div>
-                                    <span class="secondary-text">{{event.type}}</span>
-                                    <span ng-if="event.location">{{event.type}}</span>
+                                <div layout="row" layout-align="start">
+                                    <i class="icon-folder mr-8 font-size-20 disabled-text"></i>
+                                    <div flex layout="column">
+                                        <div class="secondary-text">{{entry.header}}</div>
+                                        <div>{{entry.entry}}</div>
+                                        <div class="secondary-text">{{entry.date | fromNow}} by {{entry.created_by.name.full}}</div>
+                                        </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </ms-widget-front>
                     <!-- / Front -->
 
                 </ms-widget>
-                <!-- / WIDGET 7 -->
+                <!-- / ACTIVITY WIDGET -->
 
             </div>
             <!-- / WIDGET GROUP -->
 
+
+            <!-- WIDGET GROUP -->
+            <div class="widget-group" layout="row" flex="100" layout-wrap>
+
+                <!-- TIMECARDS WIDGET -->
+                <ms-widget layout="column" flex="100"flex-gt-sm="50">
+                    <!-- Front -->
+                    <ms-widget-front class="white-bg" >
+                        <div class="ph-16 border-bottom" layout="row" layout-align="space-between center">
+                            <div class="h3 pv-16">{{vm.widgets.timecards.title}}</div>
+                        </div>
+
+                        <div class="h4 pv-15 secondary-text" layout="row" layout-align="center"
+                             ng-if="!vm.widgets.timecards.data.open.length && !vm.widgets.timecards.data.closed.length">
+                            No timecards yet!
+                        </div>
+
+                        <!-- OPEN -->
+                        <div ng-if="vm.widgets.timecards.data.open.length">
+                        <div class="ph-16 pv-5 grey-200-bg secondary-text">Open</div>
+                        <div  ng-repeat="open in vm.widgets.timecards.data.open" >
+                            <div layout="row" class="ph-16 pv-15">
+                            <div class="avatar" ng-if="!mail.from.avatar" ms-random-class="vm.colors">
+                                {{open.user.name.first[0]}}{{open.user.name.last[0]}}
+                            </div>
+
+                            <div flex layout="column" layout-align="center">
+                                <div layout="row" layout-align="space-between center" class="font-size-14">
+                                <div>{{open.user.name.full}}</div>
+                                    <div >{{open.clock_in | duration | number:1}} h</div>
+                                </div>
+                                <div layout="row" layout-align="space-between center" class="secondary-text">
+                                    <div>{{open.position}}</div>
+                                    <div >{{open.clock_in | date : 'shortTime'}} -</div>
+                                </div>
+                            </div>
+                                </div>
+                            <md-divider  ng-if="!$last"></md-divider>
+                        </div>
+                        </div>
+                        <!-- / OPEN -->
+
+                        <!-- CLOSED -->
+                        <div ng-if="vm.widgets.timecards.data.closed.length">
+                        <div class="ph-16 pv-5 grey-200-bg secondary-text">Closed</div>
+
+                        <div ng-repeat="closed in vm.widgets.timecards.data.closed">
+                            <div layout="row" class="ph-16 pv-15">
+                            <div class="avatar" ng-if="!mail.from.avatar" ms-random-class="vm.colors">
+                                {{closed.user.name.first[0]}}{{closed.user.name.last[0]}}
+                            </div>
+                            <div flex layout="column" layout-align="center">
+                                <div layout="row"  layout-align="space-between center" class="font-size-14">
+                                    <div>{{closed.user.name.full}}</div>
+                                    <div >{{closed.clock_in | duration : closed.clock_out | number:1}} h</div>
+                                     </div>
+                                <div layout="row" layout-align="space-between center" class="secondary-text">
+                                <div>{{closed.position}}</div>
+                                    <div >{{closed.clock_in | date : 'shortTime'}} - {{closed.clock_out | date : 'shortTime'}}</div>
+                                </div>
+
+                            </div>
+                            </div>
+                            <md-divider  ng-if="!$last"></md-divider>
+                        </div>
+                        </div>
+                        <!-- CLOSED -->
+
+                    </ms-widget-front>
+                    <!-- / Front -->
+
+                </ms-widget>
+                <!-- / LABOR WIDGET -->
+
+            </div>
+            <!-- / WIDGET GROUP -->
 
         </div>
         <!-- / CONTENT -->
 
     </div>
     <!-- / CENTER -->
-
-
 
 </div>

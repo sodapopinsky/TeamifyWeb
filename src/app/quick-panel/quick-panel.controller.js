@@ -11,6 +11,11 @@
     {
         var vm = this;
 
+        vm.colors = ['blue-bg', 'blue-grey-bg', 'orange-bg', 'pink-bg', 'purple-bg'];
+
+
+
+
         // Data
         vm.date = new Date();
         vm.settings = {
@@ -40,6 +45,14 @@
             function (response)
             {
                 vm.notes = response.data;
+            }
+        );
+
+        msApi.request('quickPanel.clock@get', {},
+            // Success
+            function (response)
+            {
+                vm.clock = response.data;
             }
         );
 

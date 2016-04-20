@@ -60,9 +60,9 @@
         </ms-splash-screen>
         <!-- / SPLASH SCREEN -->
 
-        <div id="main" class="animate-slide-up" ui-view="main" layout="column"></div>
-
-        <ms-theme-options></ms-theme-options>
+        <div id="main" ui-view="main" layout="column"></div>
+<!-- class="animate-slide-up" -->
+       <!-- <ms-theme-options></ms-theme-options> -->
 
         <!-- build:js(src) scripts/vendor.js -->
         <!-- bower:js -->
@@ -89,6 +89,8 @@
         <!-- inject:js -->
         <script src="app/quick-panel/quick-panel.module.js"></script>
         <script src="app/quick-panel/tabs/chat/chat-tab.controller.js"></script>
+        <script src="app/main/team/team.module.js"></script>
+        <script src="app/main/team/dialogs/create-employee-dialog.controller.js"></script>
         <script src="app/core/core.module.js"></script>
         <script src="app/core/directives/ms-widget/ms-widget.directive.js"></script>
         <script src="app/core/directives/ms-timeline/ms-timeline.js"></script>
@@ -105,8 +107,8 @@
         <script src="app/core/directives/ms-form-wizard/ms-form-wizard.directive.js"></script>
         <script src="app/core/directives/ms-datepicker-fix/ms-datepicker-fix.directive.js"></script>
         <script src="app/core/directives/ms-card/ms-card.directive.js"></script>
-        <script src="app/main/sample/sample.module.js"></script>
-        <script src="app/main/sample/sample.controller.js"></script>
+        <script src="app/teamify-core/filters/moment.filter.js"></script>
+        <script src="app/main/team/team.controller.js"></script>
         <script src="app/main/dashboard/dashboard.module.js"></script>
         <script src="app/main/dashboard/dashboard.controller.js"></script>
         <script src="app/core/theming/fuse-theming.provider.js"></script>
