@@ -1,0 +1,77 @@
+<div class="content">
+    <!-- WIDGET GROUP -->
+<div class="widget-group" layout="row" flex="100" layout-wrap>
+
+    <!-- LABOR WIDGET -->
+    <ms-widget layout="column" flex="100" flex-gt-sm="50">
+
+        <!-- Front -->
+        <ms-widget-front class="white-bg" >
+
+            <div class="ph-16 border-bottom" layout="row" layout-align="space-between center">
+                <div class="h3 pv-16">{{vm.widgets.information.title}}</div>
+            </div>
+
+
+
+
+
+            <div class="list">
+            <div class="list-item" layout="row" layout-align="space-between center">
+                <div>Name</div>
+                <div class="secondary-item">{{vm.user.name.first}} {{vm.user.name.last}}</div>
+            </div>
+            <div class="list-item" layout="row" layout-align="space-between center">
+                <div>Wage</div>
+                <div class="secondary-item">{{vm.user.wage | currency}}</div>
+            </div>
+            <div class="list-item" layout="row" layout-align="space-between center">
+                <div>PIN</div>
+                <div class="secondary-item">{{vm.user.pin}}</div>
+            </div>
+            <div class="list-item" layout="row" layout-align="space-between center">
+                <div>Status</div>
+                <div class="secondary-item">{{vm.user.status}}</div>
+            </div>
+            </div>
+
+        </ms-widget-front>
+        <!-- / Front -->
+
+    </ms-widget>
+    <!-- / LABOR WIDGET -->
+
+    <!-- ACTIVITY WIDGET -->
+    <ms-widget layout="column" flex="100" flex-gt-sm="50">
+
+        <!-- Front -->
+        <ms-widget-front class="white-bg">
+
+            <div class="ph-16 border-bottom" layout="row" layout-align="space-between center">
+                <div class="h3 pv-16">{{vm.widgets.activity.title}}</div>
+            </div>
+
+            <div  class="ph-16 pv-15 border-bottom" layout="row" layout-align="space-between center"
+                  ng-repeat="entry in vm.widgets.activity.data">
+                <div>
+                    <div layout="row" layout-align="start">
+                        <i class="icon-folder mr-8 font-size-20 disabled-text"></i>
+                        <div flex layout="column">
+                            <div class="secondary-text">{{entry.header}}</div>
+                            <div>{{entry.entry}}</div>
+                            <div class="secondary-text">{{entry.date | fromNow}} by {{entry.created_by.name.full}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </ms-widget-front>
+        <!-- / Front -->
+
+    </ms-widget>
+    <!-- / ACTIVITY WIDGET -->
+
+</div>
+<!-- / WIDGET GROUP -->
+
+    </div>

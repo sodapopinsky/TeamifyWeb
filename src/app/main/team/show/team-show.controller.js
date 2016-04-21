@@ -1,51 +1,54 @@
-(function ()
-{
+(function () {
     'use strict';
 
-    angular
-        .module('app.team')
-        .controller('TeamShowController', TeamShowController);
+    angular.module('app.team').controller('TeamShowController', TeamShowController);
 
     /** @ngInject */
-    function TeamShowController(TeamData, $mdDialog, $document)
-    {
+    function TeamShowController(TeamMemberData, $mdDialog, $document) {
         var vm = this;
 
         //Data
-        vm.team = TeamData.data;
+        vm.user = TeamMemberData.data.user;
 
-        // Filter Models
-        vm.status = "Active";
-        vm.searchFilter = '';
+        //Methods
+        vm.editUser = editUser;
 
-        // Methods
-        vm.createEmployee = createEmployee;
+        // Widgets
+        vm.widgets = {
+            information: {
+                title: 'Information'
+            },
+            activity: {
+                title: 'Recent Activity',
+                data: TeamMemberData.data.activity
+            }
+        };
 
-        function createEmployee(e)
-        {
+
+        function editUser(e) {
+
             var dialogData = {
-                type: "test"
+                user: vm.user
             };
 
-            $mdDialog.show({
-                controller         : 'CreateEmployeeDialogController',
-                controllerAs       : 'vm',
-                templateUrl        : 'app/main/team/dialogs/create-employee-dialog.html',
-                parent             : angular.element($document.body),
-                targetEvent        : e,
-                clickOutsideToClose: true,
-                locals             : {
-                    dialogData: dialogData
-                }
-            }).then(function (response)
-            {
-                // Add new
-                vm.team.push({
-                    name: response.employee.name,
-                    status: 'Active'
+            $mdDialog.show(
+                {
+                    controller: 'EditUserDialogController',
+                    controllerAs: 'vm',
+                    templateUrl: 'app/main/team/show/dialogs/edit-user-dialog.html',
+                    parent: angular.element($document.body),
+                    targetEvent: e,
+                    clickOutsideToClose: true,
+                    locals: {
+                        dialogData: dialogData
+                    }
+                }).then(
+                function (response) {
+                    console.log(response);
+                    vm.user = response.user;
                 });
-            });
-        };
+
+        }
 
 
     }

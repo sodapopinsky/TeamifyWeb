@@ -13,10 +13,7 @@
 
         vm.colors = ['blue-bg', 'blue-grey-bg', 'orange-bg', 'pink-bg', 'purple-bg'];
 
-        // Data
-      //  vm.helloText = DashboardData.data.helloText;
-
-        // Widget 7
+        // Widgets
         vm.widgets = {
             activity: {
                 title: 'Activity',
@@ -32,9 +29,5 @@
             }
         };
 
-
-        // Methods
-
-        //////////
     }
 })();

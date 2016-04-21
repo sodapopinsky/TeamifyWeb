@@ -1,3 +1,61 @@
-<div>
-    hello
+<div id="team-show" class="page-layout simple tabbed">
+
+    <!-- HEADER -->
+    <div class="pv-16 ph-16 border-bottom white-500-bg" layout="row"
+         layout-align="space-between center">
+
+        <div class="secondary-text" layout="row" layout-align="start center">
+            <md-icon md-font-icon="icon-chevron-left" class="icon s24"></md-icon>
+            <a ui-sref="app.team" class="secondary-text">back</a>
+        </div>
+
+        <div layout="row">
+            <div class="avatar grey-500-bg">
+                {{vm.user.name.first[0]}}{{vm.user.name.last[0]}}
+            </div>
+            <div class="pv-8">{{vm.user.name.first}} {{vm.user.name.last}}</div>
+        </div>
+
+        <md-menu>
+            <md-button class="md-icon-button" ng-click="$mdOpenMenu()"
+                       aria-label="more">
+                <md-icon md-font-icon="icon-dots-vertical"></md-icon>
+            </md-button>
+
+            <md-menu-content width="3">
+                <md-menu-item>
+                    <md-button ng-click="vm.editUser($event)" aria-label="Edit User">
+                        Edit Information
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button  aria-label="Terminate User">
+                        Terminate
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" >
+
+        <md-tabs md-dynamic-height>
+            <md-tab>
+                <md-tab-label>
+                    <span>General</span>
+                </md-tab-label>
+                <md-tab-body>
+                    <md-content class="clear-bg"
+                                ng-include="'app/main/team/show/tabs/general.html'">
+                    </md-content>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+
+    </div>
+    <!-- / CONTENT -->
+
+
 </div>

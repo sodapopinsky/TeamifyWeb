@@ -1,0 +1,13 @@
+.list{
+  .list-item {
+    @extend .ph-16;
+    @extend .pv-16;
+    @extend .border-bottom;
+    .secondary-item{
+      @extend h4;
+      font-weight:500;
+      color: rgba(0, 0, 0, 0.54) !important;
+    }
+  }
+
+}

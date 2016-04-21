@@ -1,8 +1,8 @@
-<md-dialog class="save-dialog" aria-label="New Message">
-    <form name="createEmployeeForm" class="md-inline-form" novalidate>
+<md-dialog class="save-dialog" aria-label="Edit Team Member">
+    <form name="editEmployeeForm" class="md-inline-form" novalidate>
         <md-toolbar class="md-accent md-hue-2">
             <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-                <span class="title">Create Employee</span>
+                <span class="title">Edit Team Member</span>
                 <md-button class="md-icon-button" ng-click="vm.closeDialog()"
                            aria-label="Close dialog">
                     <md-icon md-font-icon="icon-close"></md-icon>
@@ -14,10 +14,10 @@
             <div layout="row">
                 <md-input-container class="md-block" flex="50">
                     <label>First Name</label>
-                    <input name="first_name" ng-model="vm.employee.name.first" required>
+                    <input name="first_name" ng-model="vm.user.name.first" required>
 
-                    <div ng-messages="createEmployeeForm.first_name.$error"
-                         ng-show="createEmployeeForm.first_name.$touched" role="alert">
+                    <div ng-messages="editEmployeeForm.first_name.$error"
+                         ng-show="editEmployeeForm.first_name.$touched" role="alert">
                         <div ng-message="required">
                             <span>First Name is required</span>
                         </div>
@@ -25,9 +25,9 @@
                 </md-input-container>
                 <md-input-container class="md-block" flex="50">
                     <label>Last Name</label>
-                    <input name="last_name" ng-model="vm.employee.name.last" required>
-                    <div ng-messages="createEmployeeForm.last_name.$error"
-                         ng-show="createEmployeeForm.last_name.$touched" role="alert">
+                    <input name="last_name" ng-model="vm.user.name.last" required>
+                    <div ng-messages="editEmployeeForm.last_name.$error"
+                         ng-show="editEmployeeForm.last_name.$touched" role="alert">
                         <div ng-message="required">
                             <span>Last Name is required</span>
                         </div>
@@ -38,25 +38,25 @@
             <div layout="row">
                 <md-input-container class="md-block" flex="50">
                     <label>Email (Optional)</label>
-                    <input name="email" ng-model="vm.employee.email">
+                    <input name="email" ng-model="vm.user.email">
                 </md-input-container>
                 <md-input-container class="md-block" flex="50">
                     <label>Phone Number (Optional)</label>
-                    <input name="phone" ng-model="vm.employee.phone">
+                    <input name="phone" ng-model="vm.user.phone">
                 </md-input-container>
             </div>
 
             <div layout="row">
                 <md-input-container class="md-block" flex="50">
                     <label>PIN (Optional)</label>
-                    <input name="pin" ng-model="vm.employee.pin">
+                    <input name="pin" ng-model="vm.user.pin">
                 </md-input-container>
 
                 <md-input-container class="md-block" flex="50">
                     <label>Wage</label>
-                    <input name="wage" type="number" ng-model="vm.employee.wage" required>
-                    <div ng-messages="createEmployeeForm.wage.$error"
-                         ng-show="createEmployeeForm.wage.$touched" role="alert">
+                    <input name="wage" type="number" ng-model="vm.user.wage" required>
+                    <div ng-messages="editEmployeeForm.wage.$error"
+                         ng-show="editEmployeeForm.wage.$touched" role="alert">
                         <div ng-message="required">
                             <span>Wage is required</span>
                         </div>
@@ -74,7 +74,7 @@
         <md-dialog-actions layout="row" layout-align="end center">
             <md-button ng-click="vm.saveEvent()" class="save-button md-accent md-raised"
                        aria-label="SAVE"
-                       ng-disabled="createEmployeeForm.$invalid || createEmployeeForm.$pristine">
+                       ng-disabled="editEmployeeForm.$invalid || editEmployeeForm.$pristine">
                 SAVE
             </md-button>
         </md-dialog-actions>

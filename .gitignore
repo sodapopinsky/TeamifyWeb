@@ -28,6 +28,7 @@ journal
 
 # Ignore Web Storm #
 .idea
+.idea/workspace.xml
 
 # Compiled source #
 ###################

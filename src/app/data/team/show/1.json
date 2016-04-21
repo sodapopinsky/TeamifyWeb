@@ -1,0 +1,30 @@
+{
+  "data": {
+    "user": {
+      "_id": 1,
+      "name": {
+        "first": "Amanda",
+        "last": "Singleton",
+        "full": "Amanda Singleton"
+      },
+      "pin": 1234,
+      "wage": 10.25,
+      "status": "Active"
+    },
+    "activity": [
+      {
+        "type": "note",
+        "header": "A note has been placed in the file of Robert Martinez",
+        "entry": "Failed to complete checklist items",
+        "date": "2016-04-12T15:34:00.000Z",
+        "created_by": {
+          "name": {
+            "first": "Tiffany",
+            "last": "Webb",
+            "full": "Tiffany Webb"
+          }
+        }
+      }
+    ]
+  }
+}

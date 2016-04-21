@@ -23,9 +23,7 @@
 
         function createEmployee(e)
         {
-            var dialogData = {
-                type: "test"
-            };
+
 
             $mdDialog.show({
                 controller         : 'CreateEmployeeDialogController',
@@ -33,10 +31,7 @@
                 templateUrl        : 'app/main/team/dialogs/create-employee-dialog.html',
                 parent             : angular.element($document.body),
                 targetEvent        : e,
-                clickOutsideToClose: true,
-                locals             : {
-                    dialogData: dialogData
-                }
+                clickOutsideToClose: true
             }).then(function (response)
             {
                 // Add new

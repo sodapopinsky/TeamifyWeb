@@ -3,19 +3,19 @@
     'use strict';
 
     angular.module('app.team')
-        .controller('CreateEmployeeDialogController', CreateEmployeeDialogController);
+        .controller('EditUserDialogController', EditUserDialogController);
 
     /** @ngInject */
-    function CreateEmployeeDialogController($mdDialog)
+    function EditUserDialogController($mdDialog, dialogData)
     {
         var vm = this;
 
-
+        // Data
+        vm.user = angular.copy(dialogData.user);
 
         // Methods
-        vm.closeDialog = closeDialog;
         vm.saveEvent = saveEvent;
-
+        vm.closeDialog = closeDialog;
 
         /**
          * Save the event
@@ -23,12 +23,11 @@
         function saveEvent()
         {
             var response = {
-                employee: vm.employee
+                user: vm.user
             };
 
             $mdDialog.hide(response);
         }
-
 
         /**
          * Close the dialog

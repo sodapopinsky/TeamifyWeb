@@ -44,7 +44,7 @@
         </tfoot>
 
         <tbody>
-        <tr ui-sref="app.team.show({id: person._id})" ng-repeat="person in vm.team | filter:vm.searchFilter | filter:vm.status" >
+        <tr ui-sref="app.team.show({_id: person._id})" ng-repeat="person in vm.team | filter:vm.searchFilter | filter:vm.status" >
             <td class="name">{{person.name.first}}</td>
             <td class="position">{{person.name.last}}</td>
             <td class="office">{{person.status}}</td>
