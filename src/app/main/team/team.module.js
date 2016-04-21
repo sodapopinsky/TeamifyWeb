@@ -25,6 +25,21 @@
                         return msApi.resolve('team@get');
                     }
                 }
+            })
+            .state('app.team.show', {
+                url    : '/:id',
+                views  : {
+                    'content@app': {
+                        templateUrl: 'app/main/team/show/team-show.html',
+                        controller : 'TeamShowController as vm'
+                    }
+                },
+                resolve: {
+                    TeamData: function (msApi)
+                    {
+                        return msApi.resolve('team@get');
+                    }
+                }
             });
 
         // Api

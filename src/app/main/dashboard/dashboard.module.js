@@ -7,7 +7,7 @@
         .config(config);
 
     /** @ngInject */
-    function config($stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider)
+    function config($stateProvider, msApiProvider, msNavigationServiceProvider)
     {
         // State
         $stateProvider
@@ -27,14 +27,10 @@
                 }
             });
 
-        // Translation
-      //  $translatePartialLoaderProvider.addPart('app/main/dashboard');
-
         // Api
         msApiProvider.register('dashboard', ['app/data/dashboard/dashboard.json']);
 
         // Navigation
-
         msNavigationServiceProvider.saveItem('dashboard', {
             title    : 'Dashboard',
             icon     : 'icon-tile-four',

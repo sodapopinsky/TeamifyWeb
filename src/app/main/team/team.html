@@ -28,7 +28,7 @@
             </div>
 </div>
 
-        <table class="simple" ms-responsive-table>
+        <table class="simple clickable" ms-responsive-table>
         <thead>
         <tr>
             <th>First Name</th>
@@ -44,7 +44,7 @@
         </tfoot>
 
         <tbody>
-        <tr ng-repeat="person in vm.team | filter:vm.searchFilter | filter:vm.status" >
+        <tr ui-sref="app.team.show({id: person._id})" ng-repeat="person in vm.team | filter:vm.searchFilter | filter:vm.status" >
             <td class="name">{{person.name.first}}</td>
             <td class="position">{{person.name.last}}</td>
             <td class="office">{{person.status}}</td>
