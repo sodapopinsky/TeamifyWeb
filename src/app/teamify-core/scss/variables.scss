@@ -1,0 +1,30 @@
+
+
+$positive : #4E8EF7 !default;
+$assertive : #EF473A !default;
+$calm: #11C1F3 !default;
+$balanced : #33CD5F !default;
+$energized : #FFC900 !default;
+$royal : #886AEA !default;
+
+
+//employee file tag colors
+$employeeFileTagsMap: (
+        'positive': $positive,
+        'assertive': $assertive,
+        'calm': $calm,
+        'balanced': $balanced,
+        'energized': $energized,
+        'royal': $royal
+);
+
+
+$assertive-faded:  #FEF4F3 !default;
+$stable : #F8F8F8 !default;
+$glass : rgba(255, 255, 255, .54) !default;
+$success : #5cb85c !default
+$brand-primary : $positive;
+$brand-success : $success;
+$brand-info : #5bc0de !default;
+$brand-warning : #f0ad4e !default;
+$brand-danger : #d9534f !default;

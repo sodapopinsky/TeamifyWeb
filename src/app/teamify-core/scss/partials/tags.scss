@@ -1,0 +1,45 @@
+
+md-card {
+  @each $colorName, $hexValue in $employeeFileTagsMap {
+    &.#{$colorName}{
+      border-left:3px solid $hexValue;
+    }
+  }
+}
+
+md-option {
+  .tag {
+    min-width            : 16px;
+    min-height           : 16px;
+    width:16px;
+    height:16px;
+    border-radius    : 8px;
+    background-color: #CCC;
+    @each $colorName, $hexValue in $employeeFileTagsMap {
+      &.tag-#{$colorName} {
+        background-color : $hexValue !important;
+      }
+    }
+  }
+}
+
+md-select {
+  .md-select-value {
+    border     : none !important;
+    box-sizing : border-box;
+    padding    : 0;
+    .tag {
+      min-width            : 16px;
+      min-height           : 16px;
+      width:16px;
+      height:16px;
+      border-radius    : 8px;
+      background-color: #CCC;
+      @each $colorName, $hexValue in $employeeFileTagsMap {
+        &.tag-#{$colorName} {
+          background-color : $hexValue !important;
+        }
+      }
+    }
+  }
+}

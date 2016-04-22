@@ -1,0 +1,28 @@
+<div class="pv-16 ph-16" layout="row" layout-align="space-between center">
+    <div>
+        <md-select class="simplified font-size-16" ng-model="vm.selectedTag"
+                      aria-label="Change range">
+        <md-option value="all">
+            All Tags
+        </md-option>
+        <md-option  ng-repeat="tag in vm.tags" value="{{tag}}">
+            <div class="tag tag-{{tag}}"></div>
+        </md-option>
+    </md-select>
+    </div>
+    <div>
+        <md-button class="md-icon-button" ng-click="$mdOpenMenu()"
+                   aria-label="more"><md-icon md-font-icon="icon-plus-circle" class="s24"></md-icon>
+    </md-button>
+    </div>
+</div>
+
+<md-card  ng-repeat="entry in vm.user.file" ng-class="{'{{entry.tag}}': entry.tag != undefined}">
+    <md-card-content layout="row" layout-align="start" >
+                    <div flex layout="column">
+                        <div>{{entry.entry}}</div>
+                        <div class="secondary-text">{{entry.created_at | fromNow}} by
+                            {{entry.created_by.name.first}} {{entry.created_by.name.last}}</div>
+                    </div>
+        </md-card-content>
+</md-card>

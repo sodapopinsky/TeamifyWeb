@@ -10,6 +10,10 @@
         //Data
         vm.user = TeamMemberData.data.user;
 
+        //Employee file tab tag filter
+        vm.selectedTag = "all";
+        vm.tags = ["assertive", "royal", "positive", "energized", "calm", "balanced"];
+
         //Methods
         vm.editUser = editUser;
 

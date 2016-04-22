@@ -9,7 +9,44 @@
       },
       "pin": 1234,
       "wage": 10.25,
-      "status": "Active"
+      "status": "Active",
+      "file": [
+        {
+          "entry": "Late For Shift",
+          "created_by": {
+            "_id": 1,
+            "name": {
+              "first": "Nick",
+              "last": "Spitale"
+            }
+          },
+          "created_at": "2016-04-12T15:34:00.000Z"
+        },
+        {
+          "entry": "Failed to complete Checklist items",
+          "tag": "assertive",
+          "created_by": {
+            "_id": 1,
+            "name": {
+              "first": "Nick",
+              "last": "Spitale"
+            }
+          },
+          "created_at": "2016-04-12T15:34:00.000Z"
+        },
+        {
+          "entry": "Failed to complete Checklist items",
+          "tag": "positive",
+          "created_by": {
+            "_id": 1,
+            "name": {
+              "first": "Nick",
+              "last": "Spitale"
+            }
+          },
+          "created_at": "2016-04-12T15:34:00.000Z"
+        }
+      ]
     },
     "activity": [
       {
