@@ -29,8 +29,8 @@
                     </md-button>
                 </md-menu-item>
                 <md-menu-item>
-                    <md-button  aria-label="Terminate User">
-                        Terminate
+                    <md-button ng-click="vm.terminateUser($event)" aria-label="Terminate User">
+                        Terminate Employee
                     </md-button>
                 </md-menu-item>
             </md-menu-content>
@@ -40,8 +40,8 @@
 
     <!-- CONTENT -->
     <div class="content" >
-
         <md-tabs md-dynamic-height>
+
             <md-tab>
                 <md-tab-label>
                     <span>General</span>
@@ -62,11 +62,7 @@
                     </md-content>
                 </md-tab-body>
             </md-tab>
-
         </md-tabs>
-
     </div>
     <!-- / CONTENT -->
-
-
 </div>

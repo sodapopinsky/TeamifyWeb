@@ -1,56 +1,57 @@
-<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+<div class="page-layout simple fullwidth doc-page element-doc-page">
 
     <div class="container">
-    <div class="simple-table-container md-whiteframe-4dp">
+        <div class="simple-table-container md-whiteframe-4dp">
 
-        <div class="pv-16 ph-16" layout="row" layout-align="space-between center">
-        <md-select class="simplified font-size-16" ng-model="vm.status"
-                   aria-label="Change range">
-            <md-option value="Active">
-                Active
-            </md-option>
-            <md-option value="Inactive">
-                Inactive
-            </md-option>
-        </md-select>
+            <div class="pv-8 ph-8 border-bottom" layout="row" layout-align="space-between center">
+                <md-select class="simplified font-size-16" ng-model="team.status"
+                           aria-label="Change range">
+                    <md-option value="Active">
+                        Active
+                    </md-option>
+                    <md-option value="Inactive">
+                        Inactive
+                    </md-option>
+                </md-select>
 
 
-            <div  flex layout="row" layout-align="end center">
-               <div  class="pv-8 ph-8 border">
-                <div class="search" flex layout="row" layout-align="start center">
-                    <md-icon md-font-icon="icon-magnify" class="icon s24"></md-icon>
-                    <input flex ng-model="vm.searchFilter" type="text" placeholder="Search...">
+                <div flex layout="row" layout-align="end center">
+                    <div class="pv-8 ph-8 border">
+                        <div class="search" flex layout="row" layout-align="start center">
+                            <md-icon md-font-icon="icon-magnify" class="icon s24"></md-icon>
+                            <input flex ng-model="team.searchFilter" type="text" placeholder="Search...">
+                        </div>
+                    </div>
+                    <md-button ng-click="team.createEmployee($event)" class="md-raised md-accent" aria-label="Follow">
+                        Create Employee
+                    </md-button>
                 </div>
-               </div>
-                <md-button ng-click="vm.createEmployee($event)" class="md-raised md-accent" aria-label="Follow"
-                        >Create Employee
-                </md-button>
             </div>
-</div>
 
-        <table class="simple clickable" ms-responsive-table>
-        <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Status</th>
-        </tr>
-        </thead>
+            <table class="simple clickable" ms-responsive-table>
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
 
-        <tfoot>
-        <tr>
-            <td></td>
-        </tr>
-        </tfoot>
+                <tfoot>
+                <tr>
+                    <td></td>
+                </tr>
+                </tfoot>
 
-        <tbody>
-        <tr ui-sref="app.team.show({_id: person._id})" ng-repeat="person in vm.team | filter:vm.searchFilter | filter:vm.status" >
-            <td class="name">{{person.name.first}}</td>
-            <td class="position">{{person.name.last}}</td>
-            <td class="office">{{person.status}}</td>
-        </tr>
-        </tbody>
-    </table>
+                <tbody>
+                <tr ui-sref="app.team.show({_id: person._id})"
+                    ng-repeat="person in team.team | filter:team.searchFilter | filter:team.status">
+                    <td class="name">{{person.name.first}}</td>
+                    <td class="position">{{person.name.last}}</td>
+                    <td class="office">{{person.status}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-    </div>

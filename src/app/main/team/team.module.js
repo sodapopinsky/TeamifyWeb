@@ -16,7 +16,7 @@
                 views  : {
                     'content@app': {
                         templateUrl: 'app/main/team/team.html',
-                        controller : 'TeamController as vm'
+                        controller : 'TeamController as team'
                     }
                 },
                 resolve: {

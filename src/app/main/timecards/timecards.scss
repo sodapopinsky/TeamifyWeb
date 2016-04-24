@@ -1,0 +1,25 @@
+#timecards {
+
+
+  .date-filter {
+    &.to {
+      margin-left:20px;
+    }
+  }
+
+  #timecards-employee-filter {
+    width:140px;
+  }
+
+  // RESPONSIVE
+  @media screen and (max-width: $layout-breakpoint-xs) {
+    #timecards-employee-filter {
+      margin-top:15px;
+      margin-bottom:10px;
+      width:100%;
+    }
+  }
+
+}
+
+

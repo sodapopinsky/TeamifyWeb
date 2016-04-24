@@ -1,0 +1,24 @@
+<table class="simple" ms-responsive-table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date</th>
+        <th>In / Out</th>
+        <th>Hours</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="timecard in vm.timecards | filter:vm.selectedUserFilter">
+        <td>{{timecard.user.name.first}}</td>
+        <td>{{timecard.user.name.last}}</td>
+        <td>{{timecard.clock_in | date: 'EEE, M/dd'}}</td>
+        <td>{{timecard.clock_in | date: 'h:mm a'}} - {{timecard.clock_out | date: 'h:mm a'}}</td>
+        <td>{{timecard.clock_in | duration: timecard.clock_out | number:2}}</td>
+
+    </tr>
+
+    </tbody>
+
+</table>

@@ -7,7 +7,7 @@
         .controller('TeamController', TeamController);
 
     /** @ngInject */
-    function TeamController(TeamData, $mdDialog, $document)
+    function TeamController(TeamData, $mdDialog, $document, $scope)
     {
         var vm = this;
 
@@ -23,8 +23,6 @@
 
         function createEmployee(e)
         {
-
-
             $mdDialog.show({
                 controller         : 'CreateEmployeeDialogController',
                 controllerAs       : 'vm',

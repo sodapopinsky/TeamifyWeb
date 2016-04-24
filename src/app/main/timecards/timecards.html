@@ -1,0 +1,77 @@
+<div id="timecards" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="simple-table-container md-whiteframe-4dp">
+        <div class="pv-8 ph-16 border-bottom" layout="row" layout-align="space-between center">
+            <div layout="row" layout-align="start center">
+                <div class="secondary-text">Select Report:</div>
+                <div>
+                <md-select class="simplified font-size-16" ng-model="vm.report"
+                           aria-label="Change range">
+                    <md-option value="summary">
+                        Summary
+                    </md-option>
+                    <md-option value="detail">
+                        Shift Detail
+                    </md-option>
+                </md-select>
+                </div>
+            </div>
+            <div>
+                <md-button class="md-raised md-accent" ng-click="vm.createTimecard($event)"
+                           aria-label="create timecard">
+                    Create Timecard
+                </md-button>
+            </div>
+        </div>
+    </div>
+    <!--  / HEADER -->
+
+
+    <div class="simple-table-container md-whiteframe-4dp">
+
+
+            <div class="border-bottom ph-16 pv-16" layout="column"  layout-align="center center"
+                 layout-gt-xs="row" layout-align-gt-xs="center center" >
+                <div layout="row" layout-align="center center">
+                    <span class="label">From:</span>
+                    <md-datepicker ms-datepicker-fix ng-model="vm.options.fromDate"
+                                   md-max-date="vm.options.toDate"
+                                   md-placeholder="Enter date"></md-datepicker>
+                </div>
+                <div layout="row" layout-align="center center" class="date-filter to">
+                    <span class="label">To:</span>
+                    <md-datepicker ms-datepicker-fix ng-model="vm.options.toDate"
+                                   md-min-date="vm.options.fromDate"
+                                   md-placeholder="Enter date"></md-datepicker>
+                </div>
+
+                <div ng-if="vm.report === 'detail'" layout="row" class="ml-20" layout-align="center center">
+                    <div>
+                    <md-select class="no-print mt-0 mb-0" name="user" ng-model="vm.selectedUser"
+                               placeholder="Select Employee"
+                               aria-label="Select Employee">
+                        <md-option
+                                ng-repeat="user in vm.users"
+                                value="{{user._id}}">
+                            {{user.name.full}}
+                        </md-option>
+                    </md-select>
+                    </div>
+                    <div ng-if="vm.selectedUser">
+                        <md-icon ng-click="vm.clearSelectedUser()" md-font-icon="icon-close" class="clickable s24"></md-icon>
+                    </div>
+                </div>
+
+            </div>
+
+        <div ng-if="vm.report === 'summary'"
+             ng-include="'app/main/timecards/views/summary.html'"></div>
+        <div ng-if="vm.report === 'detail'"
+             ng-include="'app/main/timecards/views/detail.html'"></div>
+
+
+    </div>
+
+    <!-- / CONTENT -->
+</div>

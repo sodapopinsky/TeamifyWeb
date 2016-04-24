@@ -21,9 +21,16 @@
             'app.quick-panel',
 
             // Dashboard
+            'app.dashboard',
+
+            // Team
             'app.team',
 
-            // Dashboard
-            'app.dashboard'
+            // Timecards
+            'app.timecards',
+
+
+            //Third Party Libraries
+            'angular.filter'
         ]);
 })();

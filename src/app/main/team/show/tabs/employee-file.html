@@ -1,28 +1,44 @@
 <div class="pv-16 ph-16" layout="row" layout-align="space-between center">
-    <div>
+    <div layout="row">
         <md-select class="simplified font-size-16" ng-model="vm.selectedTag"
-                      aria-label="Change range">
-        <md-option value="all">
-            All Tags
-        </md-option>
-        <md-option  ng-repeat="tag in vm.tags" value="{{tag}}">
-            <div class="tag tag-{{tag}}"></div>
-        </md-option>
-    </md-select>
+                   aria-label="Change range" placeholder="Filter By Tag">
+            <md-option ng-repeat="tag in vm.tags" value="{{tag._id}}">
+                <div layout="row">
+                    <div class="tag tag-{{tag.color}}"></div>
+                    <div class="pl-8 font-size-14">{{tag.title}}</div>
+                </div>
+            </md-option>
+        </md-select>
+        <div ng-if="vm.selectedTag">
+            <md-icon ng-click="vm.clearTagFilter()" md-font-icon="icon-close" class="clickable s24"></md-icon>
+        </div>
     </div>
+
     <div>
-        <md-button class="md-icon-button" ng-click="$mdOpenMenu()"
-                   aria-label="more"><md-icon md-font-icon="icon-plus-circle" class="s24"></md-icon>
-    </md-button>
+        <md-button class="md-icon-button" ng-click="vm.createFileEntry($event)"
+                   aria-label="more">
+            <md-icon md-font-icon="icon-plus-circle" class="s24"></md-icon>
+        </md-button>
     </div>
 </div>
 
-<md-card  ng-repeat="entry in vm.user.file" ng-class="{'{{entry.tag}}': entry.tag != undefined}">
-    <md-card-content layout="row" layout-align="start" >
-                    <div flex layout="column">
-                        <div>{{entry.entry}}</div>
-                        <div class="secondary-text">{{entry.created_at | fromNow}} by
-                            {{entry.created_by.name.first}} {{entry.created_by.name.last}}</div>
-                    </div>
-        </md-card-content>
+<md-card ng-repeat="entry in vm.user.file | filter:vm.tagFilter"  ng-class="{'{{entry.tag.color}}': entry.tag != undefined}">
+    <md-card-content layout="column" layout-align="start">
+        <div class="pre">{{entry.entry}}</div>
+
+        <div layout="row" layout-align="start center" class="secondary-text">
+            <div class="secondary-text ">{{entry.created_at | fromNow}} by
+                {{entry.created_by.name.first}} {{entry.created_by.name.last}}
+            </div>
+
+            <div ng-if="entry.tag" layout="row" layout-align="start center">
+                <div class="mh-20 h-15 divider-vertical"></div>
+                <div>
+                    <md-icon md-font-icon="icon-tag" class="mr-5 s14"></md-icon>
+                </div>
+                <div>{{entry.tag.title}}</div>
+            </div>
+
+        </div>
+    </md-card-content>
 </md-card>

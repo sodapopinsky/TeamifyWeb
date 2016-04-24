@@ -1,0 +1,50 @@
+<md-dialog class="save-dialog" aria-label="Add to Employee File">
+    <form name="createFileEntryForm" class="md-inline-form" novalidate>
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                <span class="title">Employee File Entry</span>
+                <md-button class="md-icon-button" ng-click="vm.closeDialog()"
+                           aria-label="Close dialog">
+                    <md-icon md-font-icon="icon-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content ms-scroll>
+            <div layout="row">
+                    <md-select class="simplified font-size-16" ng-model="vm.entry.tag"
+                               aria-label="Change range" placeholder="Select Tag (Optional)">
+                        <md-option  ng-repeat="tag in vm.tags" value="{{tag}}">
+                            <div layout="row">
+                                <div class="tag tag-{{tag.color}}"></div>
+                                <div class="pl-8 font-size-14">{{tag.title}}</div>
+                            </div>
+                        </md-option>
+                    </md-select>
+                <div ng-if="vm.entry.tag">
+                    <md-icon ng-click="vm.clearTag()" md-font-icon="icon-close" class="clickable s24"></md-icon>
+                </div>
+            </div>
+
+            <md-input-container class="md-block mt-40" flex="100">
+                <label>Note</label>
+                <textarea name="note" ng-model="vm.entry.note"  rows="2" md-select-on-focus required></textarea>
+
+                <div ng-messages="createFileEntryForm.note.$error"
+                     ng-show="createFileEntryForm.note.$touched" role="alert">
+                    <div ng-message="required">
+                        <span>A Note is required</span>
+                    </div>
+                </div>
+            </md-input-container>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row" layout-align="end center">
+            <md-button ng-click="vm.saveEvent()" class="save-button md-accent md-raised"
+                       aria-label="SAVE"
+                       ng-disabled="createFileEntryForm.$invalid || createFileEntryForm.$pristine">
+                SAVE
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

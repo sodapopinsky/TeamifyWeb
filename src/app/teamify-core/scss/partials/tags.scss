@@ -9,10 +9,10 @@ md-card {
 
 md-option {
   .tag {
-    min-width            : 16px;
-    min-height           : 16px;
-    width:16px;
-    height:16px;
+    min-width            : 16px !important;
+    min-height           : 16px !important;
+    width:16px !important;
+    height:16px !important;
     border-radius    : 8px;
     background-color: #CCC;
     @each $colorName, $hexValue in $employeeFileTagsMap {
@@ -29,10 +29,10 @@ md-select {
     box-sizing : border-box;
     padding    : 0;
     .tag {
-      min-width            : 16px;
-      min-height           : 16px;
-      width:16px;
-      height:16px;
+      min-width            : 16px !important;
+      min-height           : 16px !important;
+      width:16px !important;
+      height:16px !important;
       border-radius    : 8px;
       background-color: #CCC;
       @each $colorName, $hexValue in $employeeFileTagsMap {

@@ -1,0 +1,14 @@
+{
+  "data": [
+    { "user": {"_id": "2", "name": {"first": "Tiffany", "last": "Webb", "full": "Tiffany Webb"}},
+      "position": "Cash 1",
+      "clock_in": "2016-04-12T15:34:00.000Z",
+      "clock_out": "2016-04-12T18:34:00.000Z"
+    },
+    { "user": {"_id": "2", "name": {"first": "Tiffany", "last": "Webb", "full": "Tiffany Webb"}},
+      "position": "Cash 1",
+      "clock_in": "2016-04-12T15:34:00.000Z",
+      "clock_out": "2016-04-12T18:34:00.000Z"
+    }
+  ]
+}

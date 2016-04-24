@@ -1,0 +1,25 @@
+<table class="simple" ms-responsive-table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Shifts</th>
+        <th>Hours</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="(key, value) in vm.timecards | groupBy: 'user._id'">
+        <td>{{value[0].user.name.first}}</td>
+        <td>{{value[0].user.name.last}}</td>
+        <td class="text-muted">{{value.length}}</td>
+        <td>{{vm.sumShiftDuration(value) | number:2}}</td>
+    </tr>
+    <tr class="text-bold">
+        <td colspan="3">Total</td>
+        <td>12.32</td>
+    </tr>
+    </tbody>
+
+</ta
+ble>

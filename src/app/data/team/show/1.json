@@ -12,7 +12,12 @@
       "status": "Active",
       "file": [
         {
-          "entry": "Late For Shift",
+          "entry": "15 Minutes Late",
+          "tag": {
+            "_id": "3",
+            "color": "energized",
+            "title": "Late For Shift"
+          },
           "created_by": {
             "_id": 1,
             "name": {
@@ -24,7 +29,11 @@
         },
         {
           "entry": "Failed to complete Checklist items",
-          "tag": "assertive",
+          "tag": {
+            "_id": "1",
+            "color": "assertive",
+            "title": "Policy Violation"
+          },
           "created_by": {
             "_id": 1,
             "name": {
@@ -35,8 +44,7 @@
           "created_at": "2016-04-12T15:34:00.000Z"
         },
         {
-          "entry": "Failed to complete Checklist items",
-          "tag": "positive",
+          "entry": "Rude To Customer",
           "created_by": {
             "_id": 1,
             "name": {
